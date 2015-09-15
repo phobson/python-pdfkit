@@ -1,10 +1,12 @@
 # -*- coding: utf-8 -*-
+import os
 import subprocess
 import sys
 
+CURRENTDIR = os.path.dirname(os.path.realpath(__file__))
 
 class Configuration(object):
-    def __init__(self, wkhtmltopdf='', meta_tag_prefix='pdfkit-'):
+    def __init__(self, wkhtmltopdf=os.path.join(CURRENTDIR, 'wkhtmltopdf.exe'), meta_tag_prefix='pdfkit-'):
         self.meta_tag_prefix = meta_tag_prefix
 
         self.wkhtmltopdf = wkhtmltopdf
