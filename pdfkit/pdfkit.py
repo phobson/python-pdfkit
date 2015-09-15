@@ -37,7 +37,7 @@ class PDFKit(object):
         self.source = Source(url_or_file, type_)
         self.configuration = (Configuration() if configuration is None
                               else configuration)
-        self.wkhtmltopdf = self.configuration.wkhtmltopdf.decode('utf-8')
+        self.wkhtmltopdf = self.configuration.wkhtmltopdf
 
         self.options = dict()
         if self.source.isString():
@@ -176,8 +176,11 @@ class PDFKit(object):
 
         css_data = []
         for p in path:
-            with codecs.open(p, encoding="UTF-8") as f:
-                css_data.append(f.read())
+            if isinstance(p, io.StringIO):
+                 css_data.append(p.read())
+            else:
+                with codecs.open(p, encoding="UTF-8") as f:
+                    css_data.append(f.read())
         css_data = "\n".join(css_data)
 
         if self.source.isFile():
