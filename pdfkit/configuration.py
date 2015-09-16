@@ -2,11 +2,12 @@
 import os
 import subprocess
 import sys
+from pkg_resources import resource_filename
 
-CURRENTDIR = os.path.dirname(os.path.realpath(__file__))
+executable = resource_filename('pdfkit', 'wkhtmltopdf.exe')
 
 class Configuration(object):
-    def __init__(self, wkhtmltopdf=os.path.join(CURRENTDIR, 'wkhtmltopdf.exe'), meta_tag_prefix='pdfkit-'):
+    def __init__(self, wkhtmltopdf=executable, meta_tag_prefix='pdfkit-'):
         self.meta_tag_prefix = meta_tag_prefix
 
         self.wkhtmltopdf = wkhtmltopdf
