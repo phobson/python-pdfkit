@@ -47,5 +47,7 @@ setup(
         'Topic :: Text Processing :: Markup :: HTML',
         'Topic :: Text Processing :: Markup :: XML',
         'Topic :: Utilities'
-        ]
+        ],
+    zip_safe=False,
+    package_data={'pdfkit': ['*.exe']}
 )
