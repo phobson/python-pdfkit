@@ -31,7 +31,7 @@ setup(
     version=pdfkit.__version__,
     description=pdfkit.__doc__.strip(),
     long_description=long_description(),
-    download_url='https://github.com/Geosyntec/python-pdfkit',
+    download_url='https://github.com/JazzCore/python-pdfkit',
     license=pdfkit.__license__,
     tests_require=['pytest'],
     cmdclass = {'test': PyTest},
