@@ -1,15 +1,14 @@
 # -*- coding: utf-8 -*-
-import os
 import subprocess
 import sys
 from pkg_resources import resource_filename
 
-executable = resource_filename('pdfkit', 'wkhtmltopdf.exe')
 
 class Configuration(object):
-    def __init__(self, wkhtmltopdf=executable, meta_tag_prefix='pdfkit-'):
+    def __init__(self, wkhtmltopdf=None, meta_tag_prefix='pdfkit-'):
         self.meta_tag_prefix = meta_tag_prefix
-
+        if wkhtmltopdf is None:
+            wkhtmltopdf = resource_filename('pdfkit', 'wkhtmltopdf.exe')
         self.wkhtmltopdf = wkhtmltopdf
 
         if not self.wkhtmltopdf:
