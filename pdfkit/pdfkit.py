@@ -55,7 +55,7 @@ class PDFKit(object):
         if self.css:
             self._prepend_css(self.css)
 
-        args = [self.wkhtmltopdf]
+        args = [self.wkhtmltopdf, '--quiet']
 
         args += list(chain.from_iterable(list(self.options.items())))
         args = [_f for _f in args if _f]
